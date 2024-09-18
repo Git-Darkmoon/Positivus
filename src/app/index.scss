@@ -19,6 +19,7 @@ body {
   max-width: vars.$max-width;
   width: 100%;
   margin-inline: auto;
+  padding-inline: 4rem;
   padding-block: 2.5rem;
 }
 
@@ -26,9 +27,12 @@ body {
   padding-inline: 35px;
   padding-block: 20px;
   border-radius: 1rem;
-  text-transform: capitalize;
   border: 2px solid transparent;
   @include mixins.my_transition(background-color, color, border);
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
 }
 
 .btn__filled {
@@ -122,10 +126,162 @@ body {
 .companies {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
   justify-content: space-between;
   align-items: center;
 
   & > * {
     filter: grayscale(100%);
+  }
+}
+
+.sectionTitle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+  padding-block-start: 100px;
+  padding-block-end: 70px;
+
+  &__title {
+    font-size: vars.$sectionTitle__title-fs;
+    padding-inline: 10px;
+    background-color: vars.$green;
+    border-radius: vars.$border_radius;
+  }
+
+  &__text {
+    font-size: vars.$sectionTitle__description-fs;
+    text-wrap: balance;
+  }
+}
+
+.cardTemplate {
+  width: 100%;
+  border-radius: vars.$cardTemplate_borderRadius;
+  border: 2px solid vars.$black;
+  box-shadow: 0 4px 0 0px vars.$black;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat((auto-fit, minmax(500px, 1fr)));
+  gap: 40px;
+}
+
+.services__card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 310px;
+  gap: 20px;
+
+  padding: 50px;
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 25px;
+    text-wrap: pretty;
+    padding: 4px;
+    border-radius: vars.$border_radius;
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: vars.$black;
+
+    &--icon {
+      background-color: vars.$black;
+      color: vars.$green;
+      padding: 0.25rem;
+      border-radius: 100%;
+      @include mixins.my_transition(rotate);
+    }
+    &:hover &--icon {
+      rotate: -45deg;
+    }
+  }
+  &__illustration {
+    align-content: center;
+    width: 90%;
+  }
+  &__image {
+    width: 100%;
+    // height: 100%;
+    object-fit: cover;
+  }
+}
+
+.services__card:nth-child(3n-2) {
+  background-color: vars.$gray;
+
+  .services__card__title {
+    background-color: vars.$green;
+  }
+}
+.services__card:nth-child(3n-1) {
+  background-color: vars.$green;
+
+  .services__card__title {
+    background-color: vars.$gray;
+  }
+}
+.services__card:nth-child(3n) {
+  background-color: vars.$black;
+
+  .services__card__title {
+    background-color: vars.$gray;
+  }
+
+  .services__card__link {
+    color: vars.$gray;
+
+    &--icon {
+      background-color: vars.$gray;
+      color: vars.$black;
+    }
+  }
+}
+
+.cta {
+  width: 100%;
+  background-color: vars.$gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 60px;
+  margin-block: 5rem;
+  border-radius: vars.$cardTemplate_borderRadius;
+
+  &__title {
+    font-size: 30px;
+  }
+
+  &__text {
+    padding-block: 26px;
+    font-size: 18px;
+    text-wrap: balance;
+  }
+}
+
+// Responsive styles
+
+@media (width <= 72rem) {
+  .container {
+    padding-inline: 2rem;
+  }
+}
+
+@media (width <= 48rem) {
+  .navbar__elements {
+    display: none;
   }
 }
