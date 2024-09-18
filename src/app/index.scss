@@ -1,0 +1,86 @@
+@use "../styles/normalize.module.scss";
+@use "../styles/variables.scss" as vars;
+@use "../styles/mixins" as mixins;
+
+body {
+  background-color: vars.$white;
+}
+
+.container {
+  max-width: vars.$max-width;
+  width: 100%;
+  margin-inline: auto;
+  padding-block: 3rem;
+}
+
+.btn {
+  padding-inline: 35px;
+  padding-block: 20px;
+  border-radius: 1rem;
+  @include mixins.my_transition(background-color);
+}
+
+.btn__filled {
+  background-color: vars.$black;
+  color: vars.$white;
+}
+
+.btn__outlined {
+  background-color: transparent;
+  border: 2px solid vars.$black;
+
+  &:hover {
+    background-color: vars.$black;
+    color: vars.$white;
+  }
+}
+
+.btn__accent {
+  background-color: vars.$green;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  &__container {
+    display: flex;
+  }
+
+  &__elements {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-transform: capitalize;
+  }
+
+  &__links {
+    color: vars.$black;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      content: "";
+      width: 0%;
+      height: 2px;
+      opacity: 0;
+      background-color: vars.$black;
+      @include mixins.my_transition(width, opacity);
+    }
+
+    &:hover::after {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}
+
+.hero {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
