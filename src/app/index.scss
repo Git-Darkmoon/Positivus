@@ -10,19 +10,27 @@ body {
   max-width: vars.$max-width;
   width: 100%;
   margin-inline: auto;
-  padding-block: 3rem;
+  padding-block: 2.5rem;
 }
 
 .btn {
   padding-inline: 35px;
   padding-block: 20px;
   border-radius: 1rem;
-  @include mixins.my_transition(background-color);
+  text-transform: capitalize;
+  border: 2px solid transparent;
+  @include mixins.my_transition(background-color, color, border);
 }
 
 .btn__filled {
   background-color: vars.$black;
   color: vars.$white;
+
+  &:hover {
+    background-color: transparent;
+    border: 2px solid vars.$black;
+    color: vars.$black;
+  }
 }
 
 .btn__outlined {
@@ -83,4 +91,30 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding-block: 70px;
+
+  &__title {
+    font-size: 60px;
+    line-height: 77px;
+    text-wrap: balance;
+    max-width: 17ch;
+  }
+
+  &__description {
+    text-wrap: pretty;
+    max-width: 50ch;
+    padding-block: 35px;
+    font-size: 20px;
+  }
+}
+
+.companies {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & > * {
+    filter: grayscale(100%);
+  }
 }
