@@ -2,6 +2,15 @@
 @use "../styles/variables.scss" as vars;
 @use "../styles/mixins" as mixins;
 
+::selection {
+  background-color: vars.$green;
+  color: vars.$black;
+}
+
+html {
+  font-family: var(--font-spaceGrotesk);
+}
+
 body {
   background-color: vars.$white;
 }
@@ -93,16 +102,18 @@ body {
   justify-content: space-between;
   padding-block: 70px;
 
+  &__information {
+    max-width: 50ch;
+  }
+
   &__title {
     font-size: 60px;
     line-height: 77px;
     text-wrap: balance;
-    max-width: 17ch;
   }
 
   &__description {
     text-wrap: pretty;
-    max-width: 50ch;
     padding-block: 35px;
     font-size: 20px;
   }
