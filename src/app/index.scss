@@ -35,6 +35,20 @@ body {
   }
 }
 
+.accordion__button {
+  display: grid;
+  place-content: center;
+  padding: 0.5rem;
+  border-radius: 100%;
+  border: 1px solid vars.$black;
+  @include mixins.my_transition(background-color, color, border);
+
+  &:hover {
+    background-color: vars.$black;
+    color: vars.$white;
+  }
+}
+
 .btn__filled {
   background-color: vars.$black;
   color: vars.$white;
@@ -145,6 +159,7 @@ body {
   padding-block-end: 70px;
 
   &__title {
+    text-wrap: nowrap;
     font-size: vars.$sectionTitle__title-fs;
     padding-inline: 10px;
     background-color: vars.$green;
@@ -269,6 +284,93 @@ body {
     padding-block: 26px;
     font-size: 18px;
     text-wrap: balance;
+  }
+}
+
+.caseStudies {
+  width: 100%;
+  background-color: vars.$black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 70px;
+  margin-block: 1rem;
+  border-radius: vars.$cardTemplate_borderRadius;
+
+  .caseStudy {
+    color: vars.$gray;
+    padding-inline: 60px;
+    font-weight: 300;
+    text-wrap: pretty;
+
+    &__link {
+      display: inline-flex;
+      align-items: center;
+      color: vars.$green;
+      gap: 15px;
+      margin-top: 20px;
+      @include mixins.my_transition(rotate);
+
+      &--icon {
+        @include mixins.my_transition(rotate, background-color, color);
+        border-radius: 100%;
+      }
+
+      &:hover .caseStudy__link--icon {
+        background-color: #fff;
+        color: vars.$black;
+        rotate: -45deg;
+      }
+    }
+
+    &:nth-child(2) {
+      border-left: 1px solid vars.$gray;
+      border-right: 1px solid vars.$gray;
+    }
+  }
+}
+
+.accordion > * {
+  margin-bottom: 30px;
+}
+
+.accordion {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    &--step {
+      font-size: 60px;
+    }
+    &--text {
+      font-size: 30px;
+      text-wrap: pretty;
+    }
+  }
+
+  &__separator {
+    width: 100%;
+    height: 1px;
+    background-color: vars.$black;
+    margin-block: 25px;
+  }
+}
+
+.accordion__item {
+  padding-block: 40px;
+  padding-inline: 60px;
+  background-color: vars.$gray;
+  @include mixins.my_transition(background-color);
+
+  &--active {
+    background-color: vars.$green;
   }
 }
 
