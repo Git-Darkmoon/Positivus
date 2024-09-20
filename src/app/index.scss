@@ -169,6 +169,7 @@ body {
   &__text {
     font-size: vars.$sectionTitle__description-fs;
     text-wrap: balance;
+    max-width: 65ch;
   }
 }
 
@@ -354,13 +355,13 @@ body {
       text-wrap: pretty;
     }
   }
+}
 
-  &__separator {
-    width: 100%;
-    height: 1px;
-    background-color: vars.$black;
-    margin-block: 25px;
-  }
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: vars.$black;
+  margin-block: 25px;
 }
 
 .accordion__item {
@@ -371,6 +372,29 @@ body {
 
   &--active {
     background-color: vars.$green;
+  }
+}
+
+.team__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.team__card {
+  padding-block: 40px;
+  padding-inline: 35px;
+
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+
+    &--image {
+      width: 100px;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }
 

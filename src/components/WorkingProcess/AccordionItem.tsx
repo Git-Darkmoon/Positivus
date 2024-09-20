@@ -31,7 +31,7 @@ function AccordionItem({ step, title, text }: Process) {
       </header>
       {isVisible && (
         <div>
-          <div className="accordion__separator"></div>
+          <div className="separator"></div>
           <p>{text}</p>
         </div>
       )}
