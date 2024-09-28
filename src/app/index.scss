@@ -492,6 +492,7 @@ body {
     gap: 20px;
     user-select: none;
     font-weight: 700;
+    color: rgba($color: vars.$gray, $alpha: 0.6);
 
     .active {
       color: vars.$green;

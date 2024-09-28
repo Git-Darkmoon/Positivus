@@ -1,4 +1,5 @@
 import CaseStudies from "@/components/CaseStudies/CaseStudies"
+import Contact from "@/components/Contact/Contact"
 import Hero from "@/components/Hero/Hero"
 import Services from "@/components/Services/Services"
 import Team from "@/components/Team/Team"
@@ -14,6 +15,7 @@ function Home() {
       <WorkingProcess />
       <Team />
       <Testimonials />
+      <Contact />
     </>
   )
 }
