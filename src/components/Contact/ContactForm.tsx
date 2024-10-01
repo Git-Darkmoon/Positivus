@@ -69,6 +69,7 @@ function ContactForm() {
           </Button>
         </div>
       </div>
+      {/* Right Illustration */}
       <Image
         src={"/Contact/illustration.png"}
         alt="Contact illustration"
