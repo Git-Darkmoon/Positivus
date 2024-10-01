@@ -513,6 +513,51 @@ body {
   }
 }
 
+.contact__input {
+  width: 100%;
+  padding-block: 18px;
+  padding-inline: 30px;
+  border: 1px solid vars.$black;
+  border-radius: vars.$border_radius;
+  @include mixins.my_transition(border-color);
+}
+
+.contact__form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-height: 700px;
+  padding-block: 60px;
+  gap: 100px;
+  background-color: vars.$gray;
+  border-radius: vars.$cardTemplate_borderRadius;
+
+  &__group {
+    width: 100%;
+    padding-left: 100px;
+  }
+
+  &__illustration {
+    object-fit: cover;
+  }
+
+  &__radioGroup {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 20px;
+
+    input[type="radio"] {
+      accent-color: vars.$green;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
 // Responsive styles
 
 @media (width <= 72rem) {
